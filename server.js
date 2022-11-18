@@ -2,9 +2,10 @@
 const express = require('express')
 const bodyParser=require("body-parser")
 // import router
-const roleRouter=require("./routes/roleRoutes")
-const userRouter=require("./routes/userRoutes")
-const orderRouter=require("./routes/orderRoutes")
+const roleRouter = require("./routes/roleRoutes")
+const userRouter = require("./routes/userRoutes")
+const orderRouter = require("./routes/orderRoutes")
+const bookRouter = require("./routes/bookRoutes")
 // create our Appconst 
 port = process.env.PORT || 5000
 const app = express()
@@ -28,7 +29,8 @@ const db = require('./DB/database')
 
 app.use('/api/v1', roleRouter)
 app.use('/api/v1', userRouter) 
-app.use('/api/v1',orderRouter)
+app.use('/api/v1', orderRouter)
+app.use('/api/v1', bookRouter)
 
 
 // Testing the connection

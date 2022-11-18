@@ -1,4 +1,4 @@
-const db=require("../../DB/database")
+const db = require("../../DB/database")
 const {User}= db.models
 const deleteUser=async(req,res)=>{
     try

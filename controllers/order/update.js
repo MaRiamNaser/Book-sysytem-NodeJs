@@ -2,9 +2,8 @@ const db=require("../../DB/database")
 const {Order} = db.models
 const updateOrder = async(req,res)=>{
 try{
-    let body=req.body
-    console.log(body);
-    const user = await User.update ({
+    let body = req.body
+    const user = await Order.update ({
       userName: body.userName,
         email:body.email,
         password:body.password,
