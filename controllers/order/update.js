@@ -1,24 +1,21 @@
 const db=require("../../DB/database")
-const {Order} = db.models
+const {OrderBook} = db.models
 const updateOrder = async(req,res)=>{
 try{
     let body = req.body
-    const user = await Order.update ({
-      userName: body.userName,
-        email:body.email,
-        password:body.password,
-        isVerified:body.isVerified,
-        RoleId:body.RoleId
-      },
+    const order = await Order.find(
       {
-        where: { id: req.params.id },
+        where: { OrderId: req.param.id },
       }
     )
+ 
+    if(order){
+      order.removeOrderBooks([orderBooks])
+      order.setOrderBooks(body)
 
-    if(user==1){
-        res.send({"msg":"User updated successfully !"})
+        res.send({"msg":"Order updated successfully !"})
     }else{
-        res.send({"msg":"User is not found !"})
+        res.send({"msg":"Order is not found !"})
 
     }
   
@@ -31,4 +28,4 @@ catch(e){res.send({"msg":e})}
 
 
 }
-module.exports=updateUser
+module.exports=updateOrder

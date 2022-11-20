@@ -1,5 +1,5 @@
 const db = require("../DB/database")
-const {DataTypes}=require("sequelize")
+const {DataTypes} = require("sequelize")
 module.exports = () => {
    return  db.define('Category', {
       id:{

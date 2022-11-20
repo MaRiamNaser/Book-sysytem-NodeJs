@@ -12,6 +12,7 @@ module.exports = () => {
       roleName: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique:true
 
       },
       

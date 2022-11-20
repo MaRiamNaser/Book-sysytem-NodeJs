@@ -11,16 +11,11 @@ module.exports = () => {
       userName: {
         type: DataTypes.STRING,
         allowNull: false,
-    
       },
+
       email: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-        //     isEmail: true, 
-            // unique: true,
-          }
-
       },
       password: {
         type: DataTypes.STRING,
@@ -30,6 +25,11 @@ module.exports = () => {
       isVerified: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+        allowNull: true,
+      },
+      token: {
+        type: DataTypes.TEXT,
+        allowNull: true,
       },
 
     })

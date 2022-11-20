@@ -1,5 +1,5 @@
 // import sequelize & schemas
-const {  DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const db = require("../DB/database")
  // create models
 const role = require("./role.model")();
@@ -11,6 +11,8 @@ const order = require("./order.model")();
 const authorBook = db.define("author_book");
 const orderBook = db.define("order_book");
 /**  define relationships */
+
+let {Book,Order}= db.models
 
 // user & role (one -> many)
 role.hasMany(user);
@@ -26,14 +28,18 @@ book.belongsToMany(author, { through: authorBook })
 
 
 // order & book (many -> many)
-order.belongsToMany(book, { through: orderBook })
-book.belongsToMany(order, { through: orderBook })
+Order.belongsToMany( Book, { through: "OrderBook",})
+Book.belongsToMany(Order,{ through: "OrderBook",})
+
+
+
+ 
 
 // user & order (one->many)
 user.hasMany(order)
 order.belongsTo(user)
 
  // generate tables in DB
-db.sync({force:false}).then(_=>console.log("Tabels created")).catch((e)=>console.log(e))
+db.sync({force:false, alter:false}).then(_=>console.log("Tabels created")).catch((e)=>console.log(e))
 
 

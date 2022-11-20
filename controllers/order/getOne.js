@@ -1,22 +1,22 @@
-// const db=require("../../DB/database")
-// const {User}= db.models
+const db=require("../../DB/database")
+const {Order}= db.models
 
-// const getOneUser=async(req,res)=>{
-//    try{
-//         const user=  await User.findOne(
-//     {
-//         where: { id: req.params.id }
-//      })
+const getOneOrder=async(req,res)=>{
+   try{
+        const order=  await Order.findAll(
+    {
+        where: { UserId: req.params.id }
+     })
     
-//      if(user){
-//       res.send({"user":user})
-//   }else{
-//       res.send({"msg":"User is not found !"})
+     if(order){
+      res.send({"Order":order})
+  }else{
+      res.send({"msg":"Order is not found !"})
 
-//   }
-//      }
-//      catch(e){res.send({"msg":e})}
+  }
+     }
+     catch(e){res.send({"msg":e})}
 
-// }
+}
 
-//   module.exports=getOneUser
+  module.exports=getOneOrder

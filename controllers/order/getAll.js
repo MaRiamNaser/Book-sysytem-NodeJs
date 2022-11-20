@@ -1,8 +1,13 @@
-const db=require("../../DB/database")
+const db = require("../../DB/database")
+
+const Books = require("../../models/book.model")();
+
 const {Order}= db.models
-const getOrderAll=async(req,res)=>{
+const getAllOrders = async(req,res)=>{
   try{
-   const orders = await Order.findAll()
+   const orders = await Order.findAll(
+   { include:[Books]}
+   )
    res.json(orders);
   
   
@@ -16,4 +21,4 @@ const getOrderAll=async(req,res)=>{
 }
   catch(e){res.send({"msg":e})}
 }
-  module.exports=getOrderAll
+  module.exports = getAllOrders

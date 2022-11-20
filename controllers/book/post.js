@@ -5,9 +5,10 @@ const postBook = async(req,res)=>{
    try{
     let body = req.body;
     const book = await Book.create(body);
+    
     if(book)
     {
-     res.send({"msg":"Order Added successfully !"})
+     res.send({"msg":"Book Added successfully !"})
      }    
      else{
          res.send({"msg":"Something went wrong!"})
@@ -19,4 +20,5 @@ const postBook = async(req,res)=>{
    catch(e){res.send({"msg":e})}
 
 }
-module.exports=postOrder
+
+module.exports = postBook

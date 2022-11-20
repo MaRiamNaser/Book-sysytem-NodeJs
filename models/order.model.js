@@ -9,9 +9,9 @@ module.exports = () => {
         primaryKey: true
       },
       date: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: true,
-        defaultValue : 1
+        defaultValue : DataTypes.NOW
       },
     })
   }

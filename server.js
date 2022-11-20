@@ -6,6 +6,7 @@ const roleRouter = require("./routes/roleRoutes")
 const userRouter = require("./routes/userRoutes")
 const orderRouter = require("./routes/orderRoutes")
 const bookRouter = require("./routes/bookRoutes")
+const categoryRouter = require("./routes/categoryRoutes")
 // create our Appconst 
 port = process.env.PORT || 5000
 const app = express()
@@ -31,6 +32,7 @@ app.use('/api/v1', roleRouter)
 app.use('/api/v1', userRouter) 
 app.use('/api/v1', orderRouter)
 app.use('/api/v1', bookRouter)
+app.use('/api/v1', categoryRouter)
 
 
 // Testing the connection
